@@ -43,7 +43,9 @@ begin
         I(2 downto 0) => S(2 downto 0),
         EN => EN,
         Y(7 downto 0) => Y_dec(7 downto 0));
-	
+
+
+	-- extract only the needed YX value using the decoder
 	Y0(0) <= Y_dec(0) and D0(0);
 	Y0(1) <= Y_dec(0) and D0(1);
 	Y0(2) <= Y_dec(0) and D0(2);
@@ -85,6 +87,7 @@ begin
 	Y7(3) <= Y_dec(7) and D7(3);
 
 
+	-- Getting the final output
 	Y(0) <= Y0(0) or Y1(0) or Y2(0) or Y3(0) or Y4(0) or Y5(0) or Y6(0) or Y7(0);
 	Y(1) <= Y0(1) or Y1(1) or Y2(1) or Y3(1) or Y4(1) or Y5(1) or Y6(1) or Y7(1);
 	Y(2) <= Y0(2) or Y1(2) or Y2(2) or Y3(2) or Y4(2) or Y5(2) or Y6(2) or Y7(2);
