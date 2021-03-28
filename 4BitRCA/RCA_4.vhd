@@ -1,3 +1,7 @@
+-- This is a 4 bit ripple carry adder with substraction
+-- entity : 
+--	A0, A1, A2, A3 : 
+
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
