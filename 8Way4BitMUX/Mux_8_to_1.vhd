@@ -44,3 +44,15 @@ begin
 
 
 end Behavioral;
+
+
+-- TODO: take and value with each and every bit of the inputs 
+-- Y0(0) <= D0(0) and Y_dec(0) 
+-- Y0(1) <= D0(1) and Y_dec(0)
+-- 
+-- Y1(0) <= D1(0) and Y_dec(1)
+-- Y1(1) <= D1(1) and Y_dec(1)
+
+
+-- TODO: Then take or with corresponding bit with every YX value
+-- Y(0) <= Y1(0) or Y2(0) or Y3(0) or Y4(0) or Y5(0) or Y6(0) or Y7(0) 
