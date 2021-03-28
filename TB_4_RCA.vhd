@@ -17,7 +17,7 @@ architecture Behavioral of TB_4_RCA is
 		B2 : in std_logic;
 		A3 : in std_logic;
 		B3 : in std_logic;
-		C_in : in std_logic;
+		Ctrl : in std_logic;
 		S0 : out std_logic;
 		S1 : out std_logic;
 		S2 : out std_logic;
@@ -34,7 +34,7 @@ architecture Behavioral of TB_4_RCA is
 	signal b2 : std_logic := '0';
 	signal a3 : std_logic := '0';
 	signal b3 : std_logic := '1';
-	signal c_in : std_logic := '0';
+	signal Ctrl : std_logic := '1';
 	
 	--outputs
 	signal s0: std_logic;
@@ -54,7 +54,7 @@ begin
 	B2 => b2,
 	A3 => a3,
 	B3 => b3,
-	C_in => c_in,
+	Ctrl => Ctrl,
 	S0 => s0,
 	S1 => s1,
 	S2 => s2,
