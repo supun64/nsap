@@ -15,13 +15,13 @@ signal clk_status : std_logic :='0';
 begin
 --For 100 MHz input clock this generates 1 Hz clock
     process (Clk_in) begin
-        if (rising_edge(Clk_in)) then
+        if (rising_edge(Clk_in)) then         
             count <= count + 1;
             if (count = 5) then
                 clk_status <= not clk_status;
                 Clk_out <= clk_status;
                 count <= 1;
-            end if;
+            end if;         
          end if;
      end process;
             

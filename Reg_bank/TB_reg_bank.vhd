@@ -25,7 +25,7 @@ architecture Behavioral of TB_reg_bank is
 SIGNAL Clk,Reg_bank_res : STD_LOGIC;
 SIGNAL Reg_EN : STD_LOGIC_VECTOR(2 DOWNTO 0);
 SIGNAL Value,Reg0_out, Reg1_out, Reg2_out, Reg3_out, Reg4_out, Reg5_out, Reg6_out, Reg7_out : STD_LOGIC_VECTOR(3 DOWNTO 0);
-CONSTANT clock_period : time := 10ns;
+CONSTANT clock_period : time := 10 ns;
 
 begin
 
@@ -59,11 +59,11 @@ begin
             Reg_bank_res <= '1';
             Reg_EN <= "001";
             Value <= "1100";
-            wait for 100 ns;
+            wait for 200 ns;
             
-            Reg_bank_res <= '0';
-            Reg_EN <= "001";
-            Value <= "1100";
+           Reg_bank_res <= '0';
+           Reg_EN <= "001";
+           Value <= "1100";
             
             
             wait;
