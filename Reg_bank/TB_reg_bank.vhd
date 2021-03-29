@@ -56,14 +56,22 @@ sim : process
 
 begin   
             
-            Reg_bank_res <= '1';
-            Reg_EN <= "001";
-            Value <= "1100";
-            wait for 200 ns;
+           Reg_bank_res <= '1';
+           Reg_EN <= "001";
+           Value <= "1100";
+           wait for 200 ns;
             
            Reg_bank_res <= '0';
            Reg_EN <= "001";
            Value <= "1100";
+           wait for 200ns;
+           
+           Reg_bank_res <= '0';
+           Reg_EN <= "010";
+           Value <= "1010";
+           wait for 200ns;
+           
+           
             
             
             wait;

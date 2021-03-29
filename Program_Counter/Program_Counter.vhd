@@ -1,6 +1,8 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
+-- This will store given three bits 
+-- TODO: adding is not implemented need to connect the out for a three bit adder
 entity Program_Counter is
     Port ( Clk : in STD_LOGIC;
            Res : in STD_LOGIC;

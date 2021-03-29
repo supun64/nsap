@@ -2,7 +2,6 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 entity Slow_Clk_Sim is
---  Port ( );
 end Slow_Clk_Sim;
 
 architecture Behavioral of Slow_Clk_Sim is
