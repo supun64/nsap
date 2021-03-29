@@ -2,7 +2,7 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
 
-entity Mux_8_to_1 is
+entity Mux_8_way_4_bit is
 	port(
 	S  : in std_logic_vector(2 downto 0);
 
@@ -22,9 +22,9 @@ entity Mux_8_to_1 is
 	-- output vector
 	Y  : out std_logic_vector(3 downto 0));
     
-end Mux_8_to_1;
+end Mux_8_way_4_bit;
 
-architecture Behavioral of Mux_8_to_1 is
+architecture Behavioral of Mux_8_way_4_bit is
 	component Decoder_3_to_8
 	port(
 	I : in std_logic_vector(2 downto 0);

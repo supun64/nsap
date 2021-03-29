@@ -1,11 +1,11 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-entity TB_Mux_8_to_1 is
-end TB_Mux_8_to_1;
+entity TB_Mux_8_way_4_bit is
+end TB_Mux_8_way_4_bit;
 
-architecture Behavioral of TB_Mux_8_to_1 is
-    component Mux_8_to_1
+architecture Behavioral of TB_Mux_8_way_4_bit is
+    component Mux_8_way_4_bit
     port(
     S : in std_logic_vector(2 downto 0);
 	
@@ -33,7 +33,7 @@ architecture Behavioral of TB_Mux_8_to_1 is
 	signal Y: std_logic_vector(3 downto 0);
 
 begin
-	utt: Mux_8_to_1 port map(
+	utt: Mux_8_way_4_bit port map(
 		S => S,
 		
 		D0 => D0,
