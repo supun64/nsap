@@ -35,6 +35,11 @@ begin
             Y(3 downto 0) => circuit_sel(3 downto 0)); 
 
     -- activate movl r, d
+    if(circuit_sel = "0001") then
+        reg_en <= InstBus(9 downto 7);
+        load_sel <= '0'
+        immediate_val <= InstBus(3 downto 0);
+    end if;
 
 end Behavioral;
 
@@ -43,3 +48,8 @@ end Behavioral;
 -- 01 => add ra, rb
 -- 10 => neg r
 -- 11 => jzr r,d
+
+
+-- look up table for load select
+-- 0 => imediate value
+-- 1 => add sub unit result
