@@ -15,8 +15,31 @@ entity InstructionDecoder is
 end InstructionDecoder;
 
 architecture Behavioral of InstructionDecoder is
+    component Decoder_2_to_4
+    port(
+        I : in STD_LOGIC_VECTOR (1 downto 0);
+        EN : in STD_LOGIC;
+        Y : out STD_LOGIC_VECTOR (3 downto 0));
+    end component;
+
+    signal circuit_sel : std_logic_vector(3 downto 0);
 
 begin
+    
+    -- decoder component
+    Decoder_2_to_4_opcode : Decoder_2_to_4
+        port map(
+            -- TODO: check whether the spliting is working
+            I(1 downto 0) => InstBus(11 downto 10), 
+            EN => '1',
+            Y(3 downto 0) => circuit_sel(3 downto 0)); 
 
+    -- activate movl r, d
 
 end Behavioral;
+
+-- look up table for instructions
+-- 00 => movl r, d
+-- 01 => add ra, rb
+-- 10 => neg r
+-- 11 => jzr r,d
