@@ -35,11 +35,18 @@ begin
             Y(3 downto 0) => circuit_sel(3 downto 0)); 
 
     -- activate movl r, d
-    if(circuit_sel = "0001") then
-        reg_en <= InstBus(9 downto 7);
-        load_sel <= '0'
-        immediate_val <= InstBus(3 downto 0);
-    end if;
+
+    process (InstBus)
+    begin
+    
+        if(circuit_sel = "0001") then
+            reg_en <= InstBus(9 downto 7);
+            load_sel <= '0';
+            immediate_val <= InstBus(3 downto 0);
+        
+        end if;
+
+    end process;
 
 end Behavioral;
 
