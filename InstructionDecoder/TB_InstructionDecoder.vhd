@@ -47,6 +47,24 @@ begin
         wait for 100ns;
 
         InstBus <= "000100010000";
+        wait for 100ns;
+
+        InstBus <= "011110000000";
+        wait for 100ns;
+
+        InstBus <= "111010000001";
+        reg_chk_4_jump <= "0000";
+        wait for 100ns;
+
+        InstBus <= "011110000000";
+        wait for 100ns;
+
+        InstBus <= "100010001001";
+        wait for 100ns;
+
+        InstBus <= "111010000001";
+        reg_chk_4_jump <= "0010";
+
         wait;
     end process;
 

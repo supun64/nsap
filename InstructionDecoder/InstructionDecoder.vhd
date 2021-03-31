@@ -37,16 +37,24 @@ begin
             EN => '1',
             Y(3 downto 0) => circuit_sel(3 downto 0)); 
 
-    reg_en <= InstBus(9 downto 7);
 
-    reg_sel_0 <= InstBus(9 downto 7);
-    reg_sel_1 <= InstBus(6 downto 4);
-
+    --TODO: try to arrenge the fetching and writing 
     process(circuit_sel)
         begin
-            if(circuit_sel = "0100") then
+
+            jump_flag <= '0'; -- to prevent jumping when not needed
+
+            reg_en <= InstBus(9 downto 7);
+
+            reg_sel_0 <= InstBus(9 downto 7);
+            reg_sel_1 <= InstBus(6 downto 4);
+
+            immediate_val <= InstBus(3 downto 0); 
+            -- This is no use puting this here rather than putting it inside the Mov inst but 
+            -- it will ensure this will not raise unneed bugs
+
+            if(circuit_sel = "0100") then       
                 load_sel <= '0';
-                immediate_val <= InstBus(3 downto 0);
                   
             
             elsif (circuit_sel = "0001") then
@@ -55,20 +63,22 @@ begin
 
             elsif (circuit_sel = "0010") then
                 load_sel <= '1';
-                add_sub_sel <= '1';
+                add_sub_sel <= '1'; -- substraction
 
                 -- calculate the negation
                 -- 0 - R = - R
-                reg_sel_1 <= reg_sel_0;
+                reg_sel_1 <= InstBus(9 downto 7);
                 reg_sel_0 <= "000";
             
-            elsif (circuit_sel = "1000" and reg_4_jump = "0000") then
+            elsif (circuit_sel = "1000") then
+                reg_en <= "000"; -- to prevent storing jump address
 
-                reg_en = "000"; -- to prevent storing jump address
-
-                jump_flag <= '1';
-                jump_adddress <= InstBus(3 downto 0);
+                -- Check whether jumping condition is satisfied
+                if (reg_chk_4_jump = "0000") then
+                    jump_flag <= '1';
+                    jump_address <= InstBus(2 downto 0);
                 
+                end if;
 
             end if;
 
