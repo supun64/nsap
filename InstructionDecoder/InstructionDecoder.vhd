@@ -42,12 +42,11 @@ begin
     reg_sel_0 <= InstBus(9 downto 7);
     reg_sel_1 <= InstBus(6 downto 4);
 
-    immediate_val <= InstBus(3 downto 0);
-
     process(circuit_sel)
         begin
             if(circuit_sel = "0100") then
                 load_sel <= '0';
+                immediate_val <= InstBus(3 downto 0);
                   
             
             elsif (circuit_sel = "0001") then
@@ -63,6 +62,12 @@ begin
                 reg_sel_1 <= reg_sel_0;
                 reg_sel_0 <= "000";
             
+            elsif (circuit_sel = "1000" and reg_4_jump = "0000") then
+
+                reg_en = "000"; -- to prevent storing jump address
+
+                jump_flag <= '1';
+                jump_adddress <= InstBus(3 downto 0);
                 
 
             end if;
