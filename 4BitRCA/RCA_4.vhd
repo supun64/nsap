@@ -14,7 +14,7 @@ entity RCA_4 is
            B1 : in STD_LOGIC;
            B2 : in STD_LOGIC;
            B3 : in STD_LOGIC;
-		   Ctrl : in std_logic; -- This is used to ctrl the signal for addition and substraction
+		   Ctrl : in std_logic; -- This is used to ctrl the signal for addition and substraction 0 for addition 1 for sub
            S0 : out STD_LOGIC;
            S1 : out STD_LOGIC;
            S2 : out STD_LOGIC;
