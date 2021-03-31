@@ -43,7 +43,7 @@ begin
 
     sim: process
     begin
-        InstBus <= "100010001001";
+        InstBus <= "100010001001"; 
         wait for 100ns;
 
         InstBus <= "000100010000";

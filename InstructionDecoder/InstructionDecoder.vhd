@@ -53,14 +53,16 @@ begin
             -- This is no use puting this here rather than putting it inside the Mov inst but 
             -- it will ensure this will not raise unneed bugs
 
+            -- Moving
             if(circuit_sel = "0100") then       
                 load_sel <= '0';
                   
-            
+            -- Adding
             elsif (circuit_sel = "0001") then
-                load_sel <= '1';
+                load_sel <= '1'; -- This will prevent fetching immediate value to reg_0
                 add_sub_sel <= '0';
 
+            -- Negetion
             elsif (circuit_sel = "0010") then
                 load_sel <= '1';
                 add_sub_sel <= '1'; -- substraction
@@ -70,6 +72,8 @@ begin
                 reg_sel_1 <= InstBus(9 downto 7);
                 reg_sel_0 <= "000";
             
+
+            -- Jumping
             elsif (circuit_sel = "1000") then
                 reg_en <= "000"; -- to prevent storing jump address
 
@@ -101,6 +105,12 @@ end Behavioral;
 -- look up table for load select
 -- 0 => imediate value
 -- 1 => add sub unit result
+
+-- look up table for jump
+-- 0 => jump disable
+-- 1 => jump to the jump address
+
+-- we have used 000 register to prevent storing values of the RCA or Imidiate values into the registers
 
 
 -- To learn
