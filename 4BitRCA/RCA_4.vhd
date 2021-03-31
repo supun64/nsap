@@ -19,7 +19,8 @@ entity RCA_4 is
            S1 : out STD_LOGIC;
            S2 : out STD_LOGIC;
            S3 : out STD_LOGIC;
-           C_out : out STD_LOGIC);
+           C_out : out STD_LOGIC;
+		   zero : out std_logic);
 end RCA_4;
 
 architecture Behavioral of RCA_4 is
@@ -51,7 +52,7 @@ begin
 			A => A0,
 			B => CTRLB0, -- to impliment the substraction
 			C_in => Ctrl,
-			S => S0,
+			S => FA0_S,
 			C_out => FA0_C);
 			
 	-- Full adder to add second two bits and carry of FA_0
@@ -60,7 +61,7 @@ begin
 				A => A1,
 				B => CTRLB1, -- to impliment the substraction
 				C_in => FA0_C,
-				S => S1,
+				S => FA1_S,
 				C_out => FA1_C);
 				
 	-- Full adder to add the third bits and carry of FA_1
@@ -69,7 +70,7 @@ begin
 				A => A2,
 				B => CTRLB2, -- to impliment the substraction
 				C_in => FA1_C,
-				S => S2,
+				S => FA2_S,
 				C_out => FA2_C);
 				
 	-- Full adder to add the fourth bits and carry of FA_2
@@ -78,7 +79,14 @@ begin
 				A => A3,
 				B => CTRLB3, -- to impliment the substraction
 				C_in => FA2_C,
-				S => S3,
+				S => FA3_S,
 				C_out => C_out);
+
+	S0 <= FA0_S;
+	S1 <= FA1_S;
+	S2 <= FA2_S;
+	S3 <= FA3_S;
+
+	zero <= not(FA0_S or FA1_S or FA2_S or FA3_S);
 
 end Behavioral;

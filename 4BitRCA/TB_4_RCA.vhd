@@ -22,7 +22,8 @@ architecture Behavioral of TB_4_RCA is
 		S1 : out std_logic;
 		S2 : out std_logic;
 		S3 : out std_logic;
-		C_out : out std_logic);
+		C_out : out std_logic;
+		Zero : out std_logic);
 	end component;
 	
 	-- inputs - index number : 190375K (0111 + 1010)
@@ -42,6 +43,7 @@ architecture Behavioral of TB_4_RCA is
 	signal s2: std_logic;
 	signal s3: std_logic;
 	signal c_out: std_logic;
+	signal zero: std_logic;
 	
 begin
 
@@ -59,7 +61,8 @@ begin
 	S1 => s1,
 	S2 => s2,
 	S3 => s3,
-	C_out => c_out);
+	C_out => c_out,
+	zero => zero);
 	
 	-- Main
 	main_process : process
@@ -142,13 +145,13 @@ begin
 		--Ending the simulation
 		
 		a0 <= '0';
-		a1 <= '0';
-		a2 <= '0';
+		a1 <= '1';
+		a2 <= '1';
 		a3 <= '0';
 		
 		b0 <= '0';
-		b1 <= '0';
-		b2 <= '0';
+		b1 <= '1';
+		b2 <= '1';
 		b3 <= '0';
 		
 		
